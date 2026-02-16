@@ -34,7 +34,10 @@ export default function DraftsIndex({
     <Layout league={league}>
       <h1 className="h1">Drafts</h1>
       <div className="subtle">
-        League: <strong>{league}</strong> • Draft boards by season
+        League: <strong>{league}</strong> • Draft boards by season <Link className="pill" href={`/drafts/all?league=${encodeURIComponent(league)}`}>
+  View All Draft Picks →
+</Link>
+
       </div>
 
       {error ? <pre style={{ marginTop: 12 }}>{error}</pre> : null}
@@ -47,6 +50,8 @@ export default function DraftsIndex({
           <div>Season</div>
           <div style={{ textAlign: "right" }}>Open</div>
         </div>
+
+
 
         {seasons.map((s) => (
           <Link
