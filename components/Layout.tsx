@@ -45,6 +45,10 @@ export default function Layout({
               <Link className="pill" href={`/teams?league=${encodeURIComponent(currentLeague)}`}>
   Teams
 </Link>
+<Link className="pill" href={`/drafts?league=${encodeURIComponent(currentLeague)}`}>
+  Drafts
+</Link>
+
             </div>
 
             {/* League selector */}
