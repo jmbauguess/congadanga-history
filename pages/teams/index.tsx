@@ -175,9 +175,6 @@ const fmt2 = (n: number) => Math.round(n * 100) / 100;
   <option value="wins">Sort: Wins</option>
 </select>
 
-<button className="pill" type="button" onClick={() => exportTeamsCsv(filteredSorted)}>
-  Export CSV
-</button>
 
 <button className="pill" type="button" onClick={() => exportTeamsXlsx(filteredSorted)}>
   Export Excel
