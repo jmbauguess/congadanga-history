@@ -16,6 +16,9 @@ export default function Home() {
         <Link className="pill" href={`/managers?league=${encodeURIComponent(league)}`}>
           Explore Managers →
         </Link>
+        <Link className="pill" href={`/teams?league=${encodeURIComponent(league)}`}>
+          Explore Teams →
+        </Link>
       </div>
 
       <div className="kpiGrid">

@@ -187,3 +187,37 @@ a { color: inherit; }
   text-align: center;
   color: var(--muted);
 }
+.select {
+  padding: 10px 40px 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background-color: var(--panel);
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* Custom arrow */
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+.select:hover {
+  border-color: rgba(125, 211, 252, 0.6);
+}
+
+.select:focus {
+  outline: none;
+  border-color: rgba(167,139,250,0.8);
+  box-shadow: 0 0 0 3px rgba(167,139,250,0.2);
+}
+
+/* Improve dropdown menu (Windows especially) */
+.select option {
+  background-color: var(--panel);
+  color: var(--text);
+}
