@@ -1,7 +1,13 @@
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { GetServerSideProps } from "next";
 import Layout from "../../components/Layout";
 import { supabase } from "../../lib/supabaseClient";
+
+const FinishByYearChart = dynamic(() => import("../../components/FinishByYearChart"), {
+  ssr: false,
+});
+
 
 type Row = {
   league: string;
@@ -111,6 +117,12 @@ export default function ManagerPage({
       (rows.reduce((sum, r) => sum + (r.season_finish ?? 0), 0) / rows.length) * 100
     ) / 100;
 
+  const chartData = rows.map((r) => ({
+    year: r.year,
+    finish: r.season_finish ?? null,
+  }));
+
+
   return (
     <Layout league={league}>
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
@@ -158,6 +170,8 @@ export default function ManagerPage({
           <div className="value">{Math.round(totalPA * 100) / 100}</div>
         </div>
       </div>
+
+      <FinishByYearChart data={chartData} />
 
       <h2 style={{ marginTop: 22, fontSize: 22, fontWeight: 900 }}>Seasons</h2>
 
